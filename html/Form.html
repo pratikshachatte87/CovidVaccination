@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/Form.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="header">
+        <div class="covid-header">
+          <div class="logo">
+            <img src="../images/emblem-gov.svg" />
+            <div>Ministry of Health and <br />Family Welfare</div>
+            <br />
+          </div>
+          <div class="icon-i">
+            <i class="fa-regular fa-plus"></i>
+            <i class="fa fa-rotate"></i>
+            <i class="fa fa-minus"></i>
+          </div>
+        </div>
+        <div class="header-menulist">
+          <img src="../images/new-logo.svg" alt="" />
+          <ul class="list">
+            <a href="./home.html">HOME</a>
+            <a href="./Form.html">FORM</a>
+            <a href="https://abha.abdm.gov.in/abha/v3/" target="_blank"
+              >ABHA(Health ID)</a
+            >
+            <a href="./Details.html">USER DETAILS</a>
+            <a href="https://www.cowin.gov.in/faq">FAQ</a>
+            <a href="https://www.cowin.gov.in/our-partner">PARTNERS</a>
+          </ul>
+          <i class="fa-solid fa-ellipsis-vertical nav-toggle"></i>
+        </div>
+      </div>
+    </nav>
+    <form class="content" id="covid-f">
+      <div class="covid-form">
+        <h2>Please Enter User Details</h2>
+        <div>
+          <label>Name</label>
+          <input
+            type="text"
+            id="name"
+            value=""
+            placeholder="Please enter the name"
+          />
+        </div>
+        <div id="usernameerror" class="error"></div>
+
+        <div>
+          <label>Age</label>
+          <input type="number" id="age" value="" placeholder="Enter your Age" />
+        </div>
+        <div id="ageerror" class="error"></div>
+
+
+        <div>
+          <label>Aadhar Number</label>
+          <input
+            type="number"
+            id="aadharNumber"
+            value=""
+            placeholder="Enter Valid Aadhar Number"
+          />
+        </div>
+        <div id="aadharerror" class="error"></div>
+
+
+        <div>
+          <label>Doses</label>
+          <input
+            type="number"
+            id="doses"
+            value=""
+            placeholder="Enter the Number of Doses"
+          />
+        </div>
+        <div id="doseerror" class="error"></div>
+
+        <p  class="disp" id="displaymsg"></p>
+
+        <button class="submit" type="submit" ">
+          Submit
+        </button>
+      </div>
+    </form>
+
+    <footer class="Footer">
+      <div class="f-heading">
+        <p class="head">VACCINATION SERVICES</p>
+        <ul>
+          <li><a href="">Register Members</a></li>
+          <li><a href="">Search Vaccination Centers</a></li>
+          <li><a href="">Book Vaccination Slots</a></li>
+          <li><a href="">Manage Appointments</a></li>
+        </ul>
+      </div>
+      <div class="f-heading">
+        <p class="head">PLATFORMS</p>
+        <ul>
+          <li><a href="">Co-WIN International</a></li>
+          <li><a href="">Vaccinator</a></li>
+          <li><a href="">Department Login</a></li>
+          <li><a href="">Verify Certificates</a></li>
+        </ul>
+      </div>
+      <div class="f-heading">
+        <p class="head">RESOURCES</p>
+        <ul>
+          <li><a href="">How to get Vaccinated</a></li>
+          <li><a href="">Overview</a></li>
+          <li><a href="">API Guidelines</a></li>
+          <li><a href="">Grievance Guidelines</a></li>
+        </ul>
+      </div>
+      <div class="f-heading">
+        <p class="head">SUPPORT</p>
+        <ul>
+          <li><a href="">Frequently Asked Questions</a></li>
+          <li><a href="">Certificate Corrections</a></li>
+        </ul>
+      </div>
+      <div class="f-heading">
+        <p class="head">CONTACT US</p>
+        <ul>
+          <li><a href="">Helpline-Toll free(1075)</a></li>
+          <li><a href="">Technical Helpline : 0120-4783222</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script>
+      const navToggle = document.querySelector(".nav-toggle");
+      const navContainer = document.querySelector(".header-menulist");
+
+      navToggle.addEventListener("click", () => {
+        navContainer.classList.toggle("active");
+        console.log("hello");
+      });
+      const form=document.getElementById("covid-f");
+      form.addEventListener("submit",handleCovidForms);
+      function handleCovidForms(e) {
+     e.preventDefault();
+      
+  const name = document.getElementById("name").value;
+  const age = document.getElementById("age").value;
+  const aadharNumber = document.getElementById("aadharNumber").value;
+  const doses = document.getElementById("doses").value;
+
+  const usernameRegex = /^[A-za-z0-9 ]{3,20}$/;
+  const aadharRegex = /^[0-9]{12}$/;
+  const ageRegex = /^(?:1[0-4][0-9]|150|[0-9][0-9]?)$/;
+  const doseRegex = /^[1-4]$/;
+  let isValid=true;
+  let errorMessage="";
+  // Clear previous error messages
+  document.getElementById("usernameerror").innerHTML = "";
+  document.getElementById("aadharerror").innerHTML = "";
+  document.getElementById("ageerror").innerHTML = "";
+  document.getElementById("doseerror").innerHTML = "";
+
+  // Validate fields
+  if (!usernameRegex.test(name)) {
+    document.getElementById("usernameerror").innerHTML = "Invalid name (3-20 characters)";
+    isValid=false;
+    errorMessage += "Invalid name (3-20 characters)\n";
+
+  }
+
+  if (!aadharRegex.test(aadharNumber)) {
+    document.getElementById("aadharerror").innerHTML = "Invalid Aadhar number";
+    isValid=false;
+    errorMessage += "Invalid Aadhar number\n";
+
+  }
+
+  if (!ageRegex.test(age)) {
+    document.getElementById("ageerror").innerHTML = "Invalid age (1-150)";
+    isValid=false;
+    errorMessage += "Invalid age (1-150)\n";
+
+  }
+
+  if (!doseRegex.test(doses)) {
+    document.getElementById("doseerror").innerHTML = "Invalid number of doses (1-4)";
+    isValid=false;
+    errorMessage += "Invalid number of doses (1-4)\n";
+
+  }
+
+
+  // If all fields are valid, proceed with form submission
+  if(isValid){
+  const obj = {
+    name: name,
+    age: age,
+    aadharNum: aadharNumber,
+    doses: doses,
+  };
+
+  // let  fetchcovidVaccinationDetails = JSON.parse(localStorage.getItem("covidVaccinationDetails")) || [];
+  let fetchcovidVaccinationDetails = JSON.parse(localStorage.getItem("covidVaccinationDetails"));
+  if (!fetchcovidVaccinationDetails) {
+    fetchcovidVaccinationDetails = [];
+  }
+
+  fetchcovidVaccinationDetails.push(obj);
+
+  localStorage.setItem("covidVaccinationDetails", JSON.stringify(fetchcovidVaccinationDetails));
+
+  document.getElementById("name").value = "";
+  document.getElementById("age").value = "";
+  document.getElementById("aadharNumber").value = "";
+  document.getElementById("doses").value = "";
+
+  document.getElementById("displaymsg").innerHTML = "Submitted Successfully";
+  document.getElementById("displaymsg").style.color = "green";
+  document.getElementById("displaymsg").style.textAlign = "center";
+ 
+}else{
+  document.getElementById("displaymsg").innerHTML = "Please Enter All the details";
+    document.getElementById("displaymsg").style.color = "red";
+
+}}
+
+    </script>
+  </body>
+</html>

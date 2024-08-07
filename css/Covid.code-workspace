@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../../../webdevlopment/ITsolution"
+		},
+		{
+			"path": "../../../../../webdevlopment/Practice_Projects_own"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Covid"
+	}
+}
